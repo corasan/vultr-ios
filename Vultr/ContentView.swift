@@ -9,23 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-		NavigationView {
-			VStack {
-				Spacer()
-				HStack {
-					Spacer()
-					AddAPIKeyView()
-					Spacer()
-				}
-				Spacer()
-			}
-			.padding(.top, 30)
-			.padding(.bottom, 24)
-			.background(Color("background"))
-			.navigationBarHidden(true)
-			.navigationTitle(Text(""))
-			.edgesIgnoringSafeArea(.all)
-		}
+		VultrTabView()
+//		NavigationView {
+//			VStack {
+//				Spacer()
+//				HStack {
+//					Spacer()
+//					AddAPIKeyView()
+//					Spacer()
+//				}
+//				Spacer()
+//			}
+//			.padding(.top, 30)
+//			.padding(.bottom, 24)
+//			.background(Color("background"))
+//			.navigationBarHidden(true)
+//			.navigationTitle(Text(""))
+//			.edgesIgnoringSafeArea(.all)
+//		}
     }
 }
 

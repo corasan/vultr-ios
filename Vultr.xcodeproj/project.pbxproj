@@ -12,6 +12,9 @@
 		BAE73EAC265AB6E800237C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE73EAB265AB6E800237C31 /* Assets.xcassets */; };
 		BAE73EAF265AB6E800237C31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE73EAE265AB6E800237C31 /* Preview Assets.xcassets */; };
 		BAE73EBB265AB86400237C31 /* AddAPIKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */; };
+		BAE73EBD265AEB9700237C31 /* InstancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EBC265AEB9700237C31 /* InstancesView.swift */; };
+		BAE73EC2265AEDA600237C31 /* VultrTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EC1265AEDA600237C31 /* VultrTabView.swift */; };
+		BAE73EC4265B146E00237C31 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EC3265B146E00237C31 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		BAE73EAE265AB6E800237C31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BAE73EB0265AB6E800237C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPIKeyView.swift; sourceTree = "<group>"; };
+		BAE73EBC265AEB9700237C31 /* InstancesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancesView.swift; sourceTree = "<group>"; };
+		BAE73EC1265AEDA600237C31 /* VultrTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VultrTabView.swift; sourceTree = "<group>"; };
+		BAE73EC3265B146E00237C31 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			children = (
 				BAE73EB6265AB74E00237C31 /* Views */,
 				BAE73EA7265AB6E700237C31 /* VultrApp.swift */,
+				BAE73EC1265AEDA600237C31 /* VultrTabView.swift */,
 				BAE73EA9265AB6E700237C31 /* ContentView.swift */,
 				BAE73EAB265AB6E800237C31 /* Assets.xcassets */,
 				BAE73EB0265AB6E800237C31 /* Info.plist */,
@@ -76,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */,
+				BAE73EBC265AEB9700237C31 /* InstancesView.swift */,
+				BAE73EC3265B146E00237C31 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,7 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE73EAA265AB6E700237C31 /* ContentView.swift in Sources */,
+				BAE73EC2265AEDA600237C31 /* VultrTabView.swift in Sources */,
+				BAE73EBD265AEB9700237C31 /* InstancesView.swift in Sources */,
 				BAE73EBB265AB86400237C31 /* AddAPIKeyView.swift in Sources */,
+				BAE73EC4265B146E00237C31 /* ProfileView.swift in Sources */,
 				BAE73EA8265AB6E700237C31 /* VultrApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
