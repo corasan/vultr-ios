@@ -11,6 +11,7 @@
 		BAE73EAA265AB6E700237C31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EA9265AB6E700237C31 /* ContentView.swift */; };
 		BAE73EAC265AB6E800237C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE73EAB265AB6E800237C31 /* Assets.xcassets */; };
 		BAE73EAF265AB6E800237C31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAE73EAE265AB6E800237C31 /* Preview Assets.xcassets */; };
+		BAE73EBB265AB86400237C31 /* AddAPIKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		BAE73EAB265AB6E800237C31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAE73EAE265AB6E800237C31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BAE73EB0265AB6E800237C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAPIKeyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		BAE73EB6265AB74E00237C31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE73EAA265AB6E700237C31 /* ContentView.swift in Sources */,
+				BAE73EBB265AB86400237C31 /* AddAPIKeyView.swift in Sources */,
 				BAE73EA8265AB6E700237C31 /* VultrApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +292,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.corasan.Vultr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,7 +314,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.corasan.Vultr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

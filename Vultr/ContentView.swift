@@ -9,13 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+		NavigationView {
+			VStack {
+				Spacer()
+				HStack {
+					Spacer()
+					AddAPIKeyView()
+					Spacer()
+				}
+				Spacer()
+			}
+			.padding(.top, 30)
+			.padding(.bottom, 24)
+			.background(Color("background"))
+			.navigationBarHidden(true)
+			.navigationTitle(Text(""))
+			.edgesIgnoringSafeArea(.all)
+		}
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+		ContentView().preferredColorScheme(.dark)
     }
 }
