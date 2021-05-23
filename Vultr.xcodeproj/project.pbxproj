@@ -52,6 +52,7 @@
 		BAE73EA6265AB6E700237C31 /* Vultr */ = {
 			isa = PBXGroup;
 			children = (
+				BAE73EB6265AB74E00237C31 /* Views */,
 				BAE73EA7265AB6E700237C31 /* VultrApp.swift */,
 				BAE73EA9265AB6E700237C31 /* ContentView.swift */,
 				BAE73EAB265AB6E800237C31 /* Assets.xcassets */,
@@ -67,6 +68,13 @@
 				BAE73EAE265AB6E800237C31 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BAE73EB6265AB74E00237C31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
