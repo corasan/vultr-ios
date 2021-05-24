@@ -49,9 +49,8 @@ struct InstanceItem: View {
     }
 }
 
-struct InstanceItem_Previews: PreviewProvider {
-	static var instance = Instance(id: "123abc", label: "Stocket Server", main_ip: "123.23.142.1", os: "Ubuntu", status: "active", power_status: "running")
-    static var previews: some View {
-		InstanceItem(instance: instance)
-    }
-}
+//struct InstanceItem_Previews: PreviewProvider {
+//    static var previews: some View {
+////		InstanceItem()
+//    }
+//}
