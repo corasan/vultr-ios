@@ -53,7 +53,6 @@ struct AddAPIKeyView: View {
 					.background(Color("vultr_blue"))
 					.cornerRadius(10)
 				}
-				.padding(.bottom, 20)
 			}
 		}
 		.padding(.horizontal, 18)
