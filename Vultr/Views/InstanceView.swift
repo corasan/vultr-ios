@@ -16,7 +16,7 @@ struct InstanceView: View {
 	}
 	
 	func instanceType() -> String {
-		let plan = self.instance.plan
+		let plan = self.vultrAPI.instance!.plan
 		if (plan.contains("vc2")) {
 			return "Cloud Compute"
 		} else if (plan.contains("vhf")) {
@@ -29,7 +29,7 @@ struct InstanceView: View {
 	}
 	
 	func diskType() -> String {
-		let plan = self.instance.plan
+		let plan = self.vultrAPI.instance!.plan
 		if plan.contains("vc2") {
 			return "SSD"
 		} else if (plan.contains("vhf")) {
@@ -42,47 +42,57 @@ struct InstanceView: View {
 	}
 	
 	func isRunning() -> Bool {
-		self.instance.power_status == "running"
+		self.vultrAPI.instance!.power_status == "running"
 	}
 	
 	func getRegion() -> String {
-		let i = self.vultrAPI.regions.firstIndex { $0.id == self.instance.region }
+		let i = self.vultrAPI.regions.firstIndex { $0.id == self.vultrAPI.instance!.region }
 		return self.vultrAPI.regions[i!].city
 	}
 
+	func startOrStop() {
+		let id = self.vultrAPI.instance!.id
+		isRunning() ? vultrAPI.stop(instanceId: id) : vultrAPI.start(instanceId: id)
+	}
+
     var body: some View {
-		VStack(alignment: .leading) {
-			Text("\(instanceType()) - \(getRegion())")
-				.font(.title3)
-				.fontWeight(.medium)
-				.foregroundColor(.gray)
-			
-			HStack {
-				InstanceActionButton(action: {}, label: isRunning() ? "Stop" : "Start", icon: "power")
-				InstanceActionButton(action: {}, label: "Restart", icon: "arrow.triangle.2.circlepath")
-			}
-			.padding(.top, 20)
-			.frame(maxWidth: .infinity)
-			
-			VStack {
-				HStack {
-					DetailItem(label: "CPU", value: "\(instance.vcpu_count) vCore")
+		VStack {
+			if(self.vultrAPI.instance != nil) {
+				VStack(alignment: .leading) {
+					
+					Text("\(instanceType()) - \(getRegion())")
+						.font(.title3)
+						.fontWeight(.medium)
+						.foregroundColor(.gray)
+					
+					HStack {
+						InstanceActionButton(action: startOrStop, label: isRunning() ? "Stop" : "Start", icon: "power")
+						InstanceActionButton(action: {}, label: "Restart", icon: "arrow.triangle.2.circlepath")
+					}
+					.padding(.top, 20)
+					.frame(maxWidth: .infinity)
+					
+					VStack {
+						HStack {
+							DetailItem(label: "CPU", value: "\(self.vultrAPI.instance!.vcpu_count) vCore")
+							Spacer()
+							DetailItem(label: "RAM", value: "\(self.vultrAPI.instance!.ram) MB")
+						}
+						HStack {
+							DetailItem(label: "Storage", value: "\(self.vultrAPI.instance!.disk) GB \(diskType())")
+							Spacer()
+							DetailItem(label: "Bandwidth", value: "\(self.vultrAPI.instance!.allowed_bandwidth) GB")
+						}
+					}
+					.padding(.top, 20)
+					.frame(maxWidth: .infinity)
 					Spacer()
-					DetailItem(label: "RAM", value: "\(instance.ram) MB")
 				}
-				HStack {
-					DetailItem(label: "Storage", value: "\(instance.disk) GB \(diskType())")
-					Spacer()
-					DetailItem(label: "Bandwidth", value: "\(instance.allowed_bandwidth) GB")
-				}
+				.frame(maxWidth: .infinity, alignment: .leading)
+				.padding(.horizontal)
+				.navigationTitle(instance.label)
 			}
-			.padding(.top, 20)
-			.frame(maxWidth: .infinity)
-			Spacer()
 		}
-		.frame(maxWidth: .infinity, alignment: .leading)
-		.padding(.horizontal)
-		.navigationTitle(instance.label)
     }
 }
 
@@ -93,7 +103,7 @@ struct DetailItem: View {
 		VStack {
 			Text(value)
 				.fontWeight(.medium)
-				.font(.title)
+				.font(.title2)
 			Text(label)
 				.foregroundColor(.gray)
 				.fontWeight(.medium)
@@ -105,8 +115,8 @@ struct DetailItem: View {
 	}
 }
 
-struct InstanceView_Previews: PreviewProvider {
-    static var previews: some View {
-        InstanceView(instance: Instance(id: "123", os: "Ubuntu", ram: 1024, disk: 32, main_ip: "192.168.21.543", vcpu_count: 1, region: "New Jersey", plan: "vhf-1c-32gb", date_created: "", status: "active", allowed_bandwidth: 2000, netmask_v4: "255.255.252.0", gateway_v4: "192.0.2.1", power_status: "running", server_status: "ok", v6_network: "2001:0db8:1112:18fb::", v6_main_ip: "2001:0db8:1112:18fb:0200:00ff:fe00:0000", v6_network_size: 64, label: "Stocket Server", internal_ip: "", kvm: "", tag: "server", os_id: 215, app_id: 0))
-    }
-}
+//struct InstanceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InstanceView(instance: Instance(id: "123", os: "Ubuntu", ram: 1024, disk: 32, main_ip: "192.168.21.543", vcpu_count: 1, region: "New Jersey", plan: "vhf-1c-32gb", date_created: "", status: "active", allowed_bandwidth: 2000, netmask_v4: "255.255.252.0", gateway_v4: "192.0.2.1", power_status: "running", server_status: "ok", v6_network: "2001:0db8:1112:18fb::", v6_main_ip: "2001:0db8:1112:18fb:0200:00ff:fe00:0000", v6_network_size: 64, label: "Stocket Server", internal_ip: "", kvm: "", tag: "server", os_id: 215, app_id: 0))
+//    }
+//}

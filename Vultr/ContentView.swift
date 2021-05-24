@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-	@ObservedObject var vultrAPI = VultrAPI()
+	@StateObject var vultrAPI = VultrAPI()
 
     var body: some View {
 		Group {

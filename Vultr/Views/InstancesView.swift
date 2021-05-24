@@ -21,6 +21,9 @@ struct InstancesView: View {
 						InstanceItem(instance: i)
 					}
 					.foregroundColor(Color("font"))
+					.simultaneousGesture(TapGesture().onEnded {
+						self.vultrAPI.getInstance(instance_id: i.id)
+					})
 				}
 				Spacer()
 				HStack { Spacer() }
