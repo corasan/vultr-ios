@@ -14,6 +14,7 @@ class VultrAPI: ObservableObject {
 	private let keychain = KeychainSwift()
 	@Published var apiKey: String
 	@Published var instances: [Instance] = [Instance]()
+	@Published var regions: [Region] = [Region]()
 	
 	init() {
 		keychain.synchronizable = true
@@ -25,6 +26,12 @@ class VultrAPI: ObservableObject {
 			.authorization(bearerToken: self.apiKey)
 		]
 		return AF.request("\(url)/\(endpoint)", method: method, headers: headers)
+	}
+	
+	private func decodeJSON<T: Decodable>(_ from: T.Type, json: [String: Any]) throws -> T {
+		let convertedData = try! JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
+		let dataStr = String(data: convertedData, encoding: String.Encoding.utf8)
+		return try JSONDecoder().decode(T.self, from: Data(dataStr!.utf8))
 	}
 	
 	func setApiKey(_ key: String) {
@@ -42,17 +49,25 @@ class VultrAPI: ObservableObject {
 		request("instances", method: .get).responseJSON { res in
 			switch res.result {
 				case let .success(result):
-					let data = result as! [String: Any]
-					let arr = data["instances"]! as! [[String: Any]]
-					
-					self.instances = arr.map { el in
-						let convertedData = try! JSONSerialization.data(withJSONObject: el, options: JSONSerialization.WritingOptions.prettyPrinted)
-						let dataStr = String(data: convertedData, encoding: String.Encoding.utf8)
-						let json = Data(dataStr!.utf8)
-						return try! JSONDecoder().decode(Instance.self, from: json)
-					}.reversed()
+					let resultJSON = result as! [String: Any]
+					let arr = resultJSON["instances"]! as! [[String: Any]]
+					self.instances = arr.map { try! self.decodeJSON(Instance.self, json: $0) }
 				case let .failure(err):
 					print(err)
+			}
+		}
+	}
+	
+	func getRegions() {
+		request("regions", method: .get).responseJSON { res in
+			switch res.result {
+				case let .success(result):
+					debugPrint(result)
+					let resultJSON = result as! [String: Any]
+					let arr = resultJSON["regions"] as! [[String: Any]]
+					self.regions = arr.map { try! self.decodeJSON(Region.self, json: $0) }
+				case let .failure(err):
+					debugPrint(err)
 			}
 		}
 	}

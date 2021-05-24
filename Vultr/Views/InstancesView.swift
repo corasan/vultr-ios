@@ -13,23 +13,17 @@ let appearance = UINavigationBarAppearance()
 struct InstancesView: View {
 	@EnvironmentObject var vultrAPI: VultrAPI
 
-//	let instances = [
-//		Instance(id: "123abc", label: "Stocket Server", main_ip: "123.23.142.1", os: "Ubuntu", status: "active", power_status: "running"),
-//		Instance(id: "456abc", label: "Stocket Server2", main_ip: "123.23.168.2", os: "Ubuntu", status: "active", power_status: "stopped")
-//	]
-
     var body: some View {
 		NavigationView {
 			ScrollView {
 				ForEach(vultrAPI.instances, id: \.id) { i in
-					InstanceItem(instance: i)
+					NavigationLink(destination: InstanceView(instance: i).environmentObject(vultrAPI)) {
+						InstanceItem(instance: i)
+					}
+					.foregroundColor(Color("font"))
 				}
-				
 				Spacer()
-				HStack {
-					Spacer()
-				}
-				
+				HStack { Spacer() }
 			}
 			.padding()
 			.navigationTitle("Instances")
@@ -41,6 +35,7 @@ struct InstancesView: View {
 		}
 		.onAppear {
 			vultrAPI.getInstances()
+			vultrAPI.getRegions()
 		}
     }
 }
@@ -48,5 +43,6 @@ struct InstancesView: View {
 struct InstancesView_Previews: PreviewProvider {
     static var previews: some View {
 		InstancesView()
+			.environmentObject(VultrAPI())
     }
 }

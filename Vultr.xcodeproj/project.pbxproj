@@ -20,6 +20,9 @@
 		BAE73ECD265B388F00237C31 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BAE73ECC265B388F00237C31 /* Alamofire */; };
 		BAE73ED0265B38B800237C31 /* VultrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73ECF265B38B800237C31 /* VultrAPI.swift */; };
 		BAE73ED3265B4C3000237C31 /* Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73ED2265B4C3000237C31 /* Instance.swift */; };
+		BAE73ED5265B5B5C00237C31 /* InstanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73ED4265B5B5C00237C31 /* InstanceView.swift */; };
+		BAE73ED7265C006800237C31 /* InstanceActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73ED6265C006800237C31 /* InstanceActionButton.swift */; };
+		BAE73EDB265C16A600237C31 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EDA265C16A600237C31 /* Region.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		BAE73EC6265B357500237C31 /* InstanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceItem.swift; sourceTree = "<group>"; };
 		BAE73ECF265B38B800237C31 /* VultrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VultrAPI.swift; sourceTree = "<group>"; };
 		BAE73ED2265B4C3000237C31 /* Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instance.swift; sourceTree = "<group>"; };
+		BAE73ED4265B5B5C00237C31 /* InstanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceView.swift; sourceTree = "<group>"; };
+		BAE73ED6265C006800237C31 /* InstanceActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceActionButton.swift; sourceTree = "<group>"; };
+		BAE73EDA265C16A600237C31 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 			children = (
 				BAE73EBA265AB86400237C31 /* AddAPIKeyView.swift */,
 				BAE73EBC265AEB9700237C31 /* InstancesView.swift */,
+				BAE73ED4265B5B5C00237C31 /* InstanceView.swift */,
 				BAE73EC3265B146E00237C31 /* ProfileView.swift */,
 			);
 			path = Views;
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE73EC6265B357500237C31 /* InstanceItem.swift */,
+				BAE73ED6265C006800237C31 /* InstanceActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE73ED2265B4C3000237C31 /* Instance.swift */,
+				BAE73EDA265C16A600237C31 /* Region.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,8 +205,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE73ED0265B38B800237C31 /* VultrAPI.swift in Sources */,
+				BAE73ED7265C006800237C31 /* InstanceActionButton.swift in Sources */,
+				BAE73ED5265B5B5C00237C31 /* InstanceView.swift in Sources */,
 				BAE73EAA265AB6E700237C31 /* ContentView.swift in Sources */,
 				BAE73EC7265B357500237C31 /* InstanceItem.swift in Sources */,
+				BAE73EDB265C16A600237C31 /* Region.swift in Sources */,
 				BAE73EC2265AEDA600237C31 /* VultrTabView.swift in Sources */,
 				BAE73ED3265B4C3000237C31 /* Instance.swift in Sources */,
 				BAE73EBD265AEB9700237C31 /* InstancesView.swift in Sources */,
