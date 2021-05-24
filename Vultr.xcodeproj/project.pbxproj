@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		BAE73EC2265AEDA600237C31 /* VultrTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EC1265AEDA600237C31 /* VultrTabView.swift */; };
 		BAE73EC4265B146E00237C31 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EC3265B146E00237C31 /* ProfileView.swift */; };
 		BAE73EC7265B357500237C31 /* InstanceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73EC6265B357500237C31 /* InstanceItem.swift */; };
+		BAE73ECA265B378800237C31 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BAE73EC9265B378800237C31 /* KeychainSwift */; };
+		BAE73ECD265B388F00237C31 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BAE73ECC265B388F00237C31 /* Alamofire */; };
+		BAE73ED0265B38B800237C31 /* VultrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE73ECF265B38B800237C31 /* VultrAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,7 @@
 		BAE73EC1265AEDA600237C31 /* VultrTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VultrTabView.swift; sourceTree = "<group>"; };
 		BAE73EC3265B146E00237C31 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BAE73EC6265B357500237C31 /* InstanceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceItem.swift; sourceTree = "<group>"; };
+		BAE73ECF265B38B800237C31 /* VultrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VultrAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE73ECA265B378800237C31 /* KeychainSwift in Frameworks */,
+				BAE73ECD265B388F00237C31 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +71,7 @@
 				BAE73EC5265B356300237C31 /* Components */,
 				BAE73EB6265AB74E00237C31 /* Views */,
 				BAE73EA7265AB6E700237C31 /* VultrApp.swift */,
+				BAE73ECF265B38B800237C31 /* VultrAPI.swift */,
 				BAE73EC1265AEDA600237C31 /* VultrTabView.swift */,
 				BAE73EA9265AB6E700237C31 /* ContentView.swift */,
 				BAE73EAB265AB6E800237C31 /* Assets.xcassets */,
@@ -116,6 +123,10 @@
 			dependencies = (
 			);
 			name = Vultr;
+			packageProductDependencies = (
+				BAE73EC9265B378800237C31 /* KeychainSwift */,
+				BAE73ECC265B388F00237C31 /* Alamofire */,
+			);
 			productName = Vultr;
 			productReference = BAE73EA4265AB6E700237C31 /* Vultr.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +154,10 @@
 				Base,
 			);
 			mainGroup = BAE73E9B265AB6E700237C31;
+			packageReferences = (
+				BAE73EC8265B378800237C31 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				BAE73ECB265B388F00237C31 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = BAE73EA5265AB6E700237C31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE73ED0265B38B800237C31 /* VultrAPI.swift in Sources */,
 				BAE73EAA265AB6E700237C31 /* ContentView.swift in Sources */,
 				BAE73EC7265B357500237C31 /* InstanceItem.swift in Sources */,
 				BAE73EC2265AEDA600237C31 /* VultrTabView.swift in Sources */,
@@ -364,6 +380,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BAE73EC8265B378800237C31 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
+		BAE73ECB265B388F00237C31 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BAE73EC9265B378800237C31 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAE73EC8265B378800237C31 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		BAE73ECC265B388F00237C31 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAE73ECB265B388F00237C31 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BAE73E9C265AB6E700237C31 /* Project object */;
 }

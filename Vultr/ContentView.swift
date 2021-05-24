@@ -8,30 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+	@ObservedObject var vultrAPI = VultrAPI()
+
     var body: some View {
-		VultrTabView()
-//		NavigationView {
-//			VStack {
-//				Spacer()
-//				HStack {
-//					Spacer()
-//					AddAPIKeyView()
-//					Spacer()
-//				}
-//				Spacer()
-//			}
-//			.padding(.top, 30)
-//			.padding(.bottom, 24)
-//			.background(Color("background"))
-//			.navigationBarHidden(true)
-//			.navigationTitle(Text(""))
-//			.edgesIgnoringSafeArea(.all)
-//		}
+		Group {
+			if (vultrAPI.apiKey.isEmpty) {
+				AddAPIKeyView()
+					.environmentObject(vultrAPI)
+			} else {
+				InstancesView()
+					.environmentObject(vultrAPI)
+			}
+		}
+		.ignoresSafeArea(edges: .top)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-		ContentView().preferredColorScheme(.dark)
+		ContentView()
+			.preferredColorScheme(.dark)
     }
 }

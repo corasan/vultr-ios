@@ -10,17 +10,14 @@ import SwiftUI
 struct AddAPIKeyView: View {
 	@State private var apiKey = ""
 	@Environment(\.colorScheme) var colorScheme
-	
-	func doSomething() {
-		print("Hello")
-	}
+	@EnvironmentObject var vultrAPI: VultrAPI
 
     var body: some View {
 		VStack {
 			Image(colorScheme == .dark ? "logo_white" : "logo_dark")
 				.padding(.top, 40)
 			Spacer()
-			
+
 			VStack(alignment: .center) {
 				Text("First, let's add your API Key")
 					.font(.title2)
@@ -33,13 +30,13 @@ struct AddAPIKeyView: View {
 					.font(.title3)
 					.cornerRadius(10)
 			}
-			
+
 			Spacer()
 			Spacer()
-			
+
 			HStack {
 				Spacer()
-				Button(action: doSomething) {
+				Button(action: { vultrAPI.setApiKey(self.apiKey) }) {
 					HStack {
 						Text("Continue")
 							.font(.title2)
